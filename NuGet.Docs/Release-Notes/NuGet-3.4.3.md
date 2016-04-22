@@ -8,10 +8,9 @@ You can download both the VSIX and NuGet.exe [here](https://dist.nuget.org/index
 
 * Improved Visual Studio reliability. We have fixed some issues in NuGet that caused crashes in Visual Studio.
 
-
 ##Fixes
 
-* Fixed some authorizations issues with password protected private nuget feeds.
+* Fixed some authorization issues with password protected private nuget feeds.
 * Fixed an issue around being unable to restore PCL's from project.json with runtimes specified.
 * Some customers were running into intermittent failures when installing packages. This has now been fixed in this release.
 * Fixed an issue that caused restore failures in C++/CLI projects with project.json.
