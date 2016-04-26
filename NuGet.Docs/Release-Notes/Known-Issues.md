@@ -10,11 +10,13 @@ When we use the following command to store the credentials, we end up double enc
 
 $PAT = "Your personal access token"
 $Feed = "Your url"
-.\nuget.exe sources add -Name Test -Source $Feed -UserName UserName -Password $PAT
+.\nuget.exe sources add -Name Test -Source $Feed -UserName $UserName -Password $PAT
 
 **Workaround:**
 
 Update credentials in a single statement
+
+nuget source update –name $Feed –username $UserName -password $PAT
 
 ## Error installing packages with NuGet 3.4, 3.4.1
 
