@@ -14,9 +14,7 @@ $Feed = "Your url"
 
 **Workaround:**
 
-Update credentials in a single statement
-
-nuget source update –name $Feed –username $UserName -password $PAT
+Store passwords in clear text using the [-StorePasswordInClearText](https://docs.nuget.org/consume/nuget-config-settings) option.
 
 ## Error installing packages with NuGet 3.4, 3.4.1
 
