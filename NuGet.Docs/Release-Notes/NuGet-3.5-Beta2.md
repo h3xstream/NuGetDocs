@@ -4,6 +4,8 @@
 
 [Issues List](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 Beta2)
 
+# Notable Changes
+
 **Bugs:**
 
 * Updated error message to lack of support for password decrpytion in .NET Core for authenticated feeds  - [#2942](https://github.com/NuGet/Home/issues/2942)
@@ -34,21 +36,15 @@
 
 * Performance - Cache dependency information for multi-project operations - [#2619](https://github.com/NuGet/Home/issues/2619)
 
-* If package source list is empty, cannot add package source via UI (NuGet 3.4.x) - [#2617](https://github.com/NuGet/Home/issues/2617)
+* Fix issue where package sources cannnot be added from settings when source list is empty - [#2617](https://github.com/NuGet/Home/issues/2617)
 
-* Misleading error when attempting to install package that depends on design-time facades - [#2594](https://github.com/NuGet/Home/issues/2594)
+* Fix Misleading error when attempting to install package that depends on design-time facades - [#2594](https://github.com/NuGet/Home/issues/2594)
 
 * Installing a package from PackageManager console with setting "All" tries only first source - [#2557](https://github.com/NuGet/Home/issues/2557)
 
-* Latest beta not unzipping ModernHttpClient - [#2518](https://github.com/NuGet/Home/issues/2518)
+* Fix issues with packages that have files with write times in the future (Mono) - [#2518](https://github.com/NuGet/Home/issues/2518)
 
-* VS2015 crash at startup with self-built NuGet 3.4.1 - [#2419](https://github.com/NuGet/Home/issues/2419)
-
-* Update command might be a bit more verbose if i ask it to be so... - [#2418](https://github.com/NuGet/Home/issues/2418)
-
-* VSIX built locally should have the same dlls and files as the CI build. - [#2401](https://github.com/NuGet/Home/issues/2401)
-
-* Failing to authenticate package source (3 times) is blocked forever - [#2362](https://github.com/NuGet/Home/issues/2362)
+* Display exception when there is a failure finding projects in update command - [#2418](https://github.com/NuGet/Home/issues/2418)
 
 * Package content is not restored correctly when installing a package from a nuget v3.3+ feed with the argument -NoCache when the package contains *.nupkg files - [#2354](https://github.com/NuGet/Home/issues/2354)
 
