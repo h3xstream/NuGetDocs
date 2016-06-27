@@ -1,8 +1,8 @@
 #3.5 Beta2 Release Notes
 
-[Full Changelog]()
+[Full Changelog](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
 
-[Issues List](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 Beta2)
+[Issues List](https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A%223.5+Beta2%22+is%3Aclosed)
 
 # Notable Changes
 
