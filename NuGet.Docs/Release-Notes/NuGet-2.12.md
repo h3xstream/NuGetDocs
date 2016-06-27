@@ -1,6 +1,6 @@
 # NuGet 2.12 Release Notes
 
-NuGet 2.12 RTM was released June 27, 2017 for Visual Studio 2013  
+NuGet 2.12 RTM was released June 27, 2016 for Visual Studio 2013  
 
 ### Updates in this release
 
