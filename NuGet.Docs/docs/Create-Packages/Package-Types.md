@@ -1,0 +1,65 @@
+﻿# Package Types
+
+Packages can be marked with a package type which indicates how a package is intended to be used. Currently, there are
+two well known package types:
+
+- `Dependency` type packages are used by libraries or applications for build-time or run-time assets. This is the
+  default package type. All packages authored prior to the concept of package type are assumed to be `Dependency`
+  packages.
+
+- `DotnetCliTool` type packages are extensions to the
+   [.NET CLI](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/index) and are invoked via the command line.
+   More details about these per-project extensions are available in the 
+   [.NET Core extensibility documention](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+
+## Setting a package type
+
+Package types are specified when [creating a package](/docs/create-packages/creating%20a%20package). If no package type
+is set, the produced .nupkg is marked with no package type, which causes the NuGet client application treat the package
+as a normal `Dependency`.
+
+It is possible but cautioned to explicitly specify the `Dependency` package type as older clients do not recognize
+package types.
+
+There are two ways to set a package type.
+
+### project.json
+
+A package type can be set in the `"packOptions"` node of the project.json. When NuGet's pack operation is executed on
+the project.json, the resulting .nupkg will have a package type set in the metadata.
+
+	{
+	  ...
+	  "packOptions": {
+		"packageType": "DotnetCliTool"
+	  }
+	}
+
+### .nuspec
+
+A package type can be set under the `<metadata>` element of a .nuspec along with all of the other supported elements.
+When NuGet's pack operation is executed on the .nuspec, the resulting .nupkg will have a package type set in the
+metadata.
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<package xmlns="http://schemas.microsoft.com/packaging/2016/04/nuspec.xsd">
+	  <metadata>
+		...
+		<packageTypes>
+		  <packageType type="DotnetCliTool" />
+		</packageTypes>
+	  </metadata>
+	</package>
+
+## Effects on install and restore
+
+When using the NuGet Visual Studio extension, `DotnetCliTool` packages can only be installed to .NET Core projects.
+`Dependency` type projects can be installed to any project type (given all other compatibility checks pass).
+
+Package types have no effect on the restore operation.
+
+## Custom package types
+
+As long as a package type identifier conforms to the same format rules as package IDs, package authors may specify
+arbitrary package types. However, only `Dependency` and `DotnetCliTool` package types are recognized by the NuGet
+installation experience in Visual Studio.
