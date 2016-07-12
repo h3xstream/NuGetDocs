@@ -1,7 +1,7 @@
 ﻿# Package Types
 
 <div class="block-callout-warning">
-This feature is available in NuGet version 3.6 and later.
+This feature is available in NuGet version 3.5 and later.
 </div>
 
 Packages can be marked with a package type which indicates how a package is intended to be used.
