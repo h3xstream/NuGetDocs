@@ -1,25 +1,38 @@
 ﻿# Package Types
 
-Packages can be marked with a package type which indicates how a package is intended to be used. Currently, there are
-two well known package types:
+<div class="block-callout-warning">
+This feature is available in NuGet version 3.6 and later.
+</div>
 
-- `Dependency` type packages are used by libraries or applications for build-time or run-time assets. This is the
-  default package type. All packages authored prior to the concept of package type are assumed to be `Dependency`
-  packages.
+Packages can be marked with a package type which indicates how a package is intended to be used.
 
-- `DotnetCliTool` type packages are extensions to the
-   [.NET CLI](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/index) and are invoked via the command line.
-   More details about these per-project extensions are available in the 
-   [.NET Core extensibility documention](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+## Well known package types
+
+There are well known package types that the NuGet client knows how to interact with.
+
+### Dependency
+
+`Dependency` type packages are used by libraries or applications for acquiring build-time or run-time assets necessary
+for functioning properly. All packages authored prior to the concept of package type are not marked with any package
+type at all and are therefore assumed to be `Dependency` packages.
+
+### DotnetCliTool
+
+`DotnetCliTool` type packages are extensions to the [.NET CLI](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/index)
+and are invoked via the command line. More details about these per-project extensions are available in the 
+[.NET Core extensibility documention](https://docs.microsoft.com/en-us/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+
+When a package is marked as a `DotnetCliTool`, installation from NuGet in Visual Studio will the package in the
+project.json `"tools"` node, instead of the `"dependencies"` node.
 
 ## Setting a package type
 
 Package types are specified when [creating a package](/docs/create-packages/creating%20a%20package). If no package type
-is set, the produced .nupkg is marked with no package type, which causes the NuGet client application treat the package
-as a normal `Dependency`.
+is set, the produced .nupkg is marked with no package type.
 
 It is possible but cautioned to explicitly specify the `Dependency` package type as older clients do not recognize
-package types.
+package types. A more backwards-compatible approach is to specify no package type at all and depend on the fact the
+the absense of a package type means the package is a `Dependency`. This is the legacy behavior.
 
 There are two ways to set a package type.
 
@@ -61,5 +74,5 @@ Package types have no effect on the restore operation.
 ## Custom package types
 
 As long as a package type identifier conforms to the same format rules as package IDs, package authors may specify
-arbitrary package types. However, only `Dependency` and `DotnetCliTool` package types are recognized by the NuGet
-installation experience in Visual Studio.
+arbitrary package types. However, only `Dependency` and `DotnetCliTool` package types are specially recognized by the
+NuGet installation experience in Visual Studio.
